@@ -125,14 +125,14 @@ Fixed & Fixed::operator-(Fixed const & other)
 Fixed & Fixed::operator*(Fixed const & other)
 {
 	std::cout << "Multiplication operator called" << std::endl;
-	this->_value = (this->toFloat() * other.toFloat()) * (1 << this->_fractionalBits);
+	this->_value = (this->_value * other.getRawBits()) >> this->_fractionalBits;
 	return *this;
 }
 
 Fixed & Fixed::operator/(Fixed const & other)
 {
 	std::cout << "Division operator called" << std::endl;
-	this->_value = (this->toFloat() / other.toFloat()) * (1 << this->_fractionalBits);
+	this->_value = (this->_value << this->_fractionalBits) / other.getRawBits();
 	return *this;
 }
 

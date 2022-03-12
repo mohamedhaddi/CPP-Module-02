@@ -20,7 +20,8 @@ int main(void)
 
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
+	std::cout << (a = a + 1) << std::endl;
+	std::cout << a.toInt() << std::endl;
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
 
